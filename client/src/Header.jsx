@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "./UserContext";
 const Header = () => {
+  const { user } = useContext(UserContext);
+  console.log("-->user data",user)
   return (
     <div>
       <header>
@@ -70,7 +74,7 @@ const Header = () => {
               </svg>
             </button>
             <Link
-              to={"/login"}
+              to={user ? "/account" : "/login"}
               className="flex justify-between border border-gray-300 rounded-full items-center shadow-md shadow-gray-300 py-1 pr-1 pl-1.5 gap-2"
             >
               <svg
@@ -101,6 +105,7 @@ const Header = () => {
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
+              {user && <div>{user.email}</div>}
             </Link>
           </div>
         </div>

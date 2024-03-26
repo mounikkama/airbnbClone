@@ -5,25 +5,34 @@ import {
   LOGIN_PASSWORD_PLACEHOLDER,
   REGISTER,
   REGISTER_BUTTON,
+  REGISTER_FAIl_MESSAGE,
   REGISTER_LOGIN,
   REGISTER_QUESTION,
+  REGISTER_SUCCESS_MESSAGE,
 } from "../components/constants";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const RegisterPage = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const registerSubmitHandler = (e)=>{
-e.preventDefault();
-axios.post('/register',{
-  name,
-  email,
-  password,
-})
-  }
+  const registerSubmitHandler =async (e) => {
+    e.preventDefault();
+try{
+  await axios.post("/register", {
+    name,
+    email,
+    password,
+  });
+  alert(REGISTER_SUCCESS_MESSAGE)
+}
+catch{
+  alert(REGISTER_FAIl_MESSAGE)
+
+}
+  };
 
   return (
     <div className="mt-4 grow flex items-center justify-around">

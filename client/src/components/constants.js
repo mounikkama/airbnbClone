@@ -9,3 +9,7 @@ export const LOGIN_QUESTION = "Didn't have an account?";
 export const LOGIN_REGISTER ='Register here';
 export const REGISTER_QUESTION = "Already have an account?";
 export const REGISTER_LOGIN = 'Login Here';
+export const REGISTER_SUCCESS_MESSAGE = "Registration has been completed successfully";
+export const REGISTER_FAIl_MESSAGE = "Registration has been failed!! Please try again later";
+export const LOGIN_FAIL_MESSAGE="Please enter the correct user name and password";
+
